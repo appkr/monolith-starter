@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+  <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+      <layout class="dev.appkr.starter.config.logging.JsonLayout"/>
+    </encoder>
+  </appender>
+
+  <root level="INFO" additivity="false">
+    <appender-ref ref="stdout"/>
+  </root>
+</included>
