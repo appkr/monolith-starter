@@ -1,7 +1,7 @@
 # Monolith starter
 
-- [ ] Basic setup including actuator, spring-configuration-processor, lombok, logback etc
-- [ ] JWT auth
+- [x] Basic setup including actuator, spring-configuration-processor, lombok, logback etc
+- [x] JWT auth
 - [ ] User registration
 - [ ] Social login
 - [ ] Open API Spec & Problem details
