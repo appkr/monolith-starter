@@ -62,3 +62,5 @@ management:
 
 application:
   version: #project.version#
+  secret: VUjx6MNon86YtxPxAAoJtIKbwSIkBGan0KriPgsb3E61c4zd
+  jwt-validity-seconds: 86400

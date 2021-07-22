@@ -8,13 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HomeResource {
 
-  @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
   @GetMapping(path = "/")
   public String home() {
     return "Hello visitor";
   }
 
-  @PreAuthorize("hasRole('ADMIN')")
+  @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
   @GetMapping(path = "/users")
   public String user(Authentication authentication) {
     return "Hello " + authentication.getName();
