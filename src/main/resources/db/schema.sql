@@ -26,3 +26,16 @@ CREATE TABLE `authority_user`
     PRIMARY KEY (`id`),
     UNIQUE KEY `UX_AUTHORITYUSER_AUTHORITYID_USERID` (`authority_id`,`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `confirmation_tokens`
+(
+    `id`           bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+    `user_id`      bigint(20) NOT NULL,
+    `token`        varchar(32) NOT NULL DEFAULT '',
+    `created_at`   timestamp   NOT NULL,
+    `expires_at`   timestamp   NOT NULL,
+    `confirmed_at` timestamp NULL DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `UX_CONFIRMATIONTOKENS_TOKEN` (`token`),
+    KEY            `IDX_CONFIRMATIONTOKENS_USERID` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

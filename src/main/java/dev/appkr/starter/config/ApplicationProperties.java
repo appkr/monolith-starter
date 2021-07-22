@@ -12,4 +12,5 @@ public class ApplicationProperties {
   private String version = "0.0.1.SNAPSHOT";
   private String secret = "VUjx6MNon86YtxPxAAoJtIKbwSIkBGan0KriPgsb3E61c4zd";
   private Integer jwtValiditySeconds = 60 * 60 * 24; // 1 day
+  private Integer confirmationTokenValidityMinutes = 60;
 }

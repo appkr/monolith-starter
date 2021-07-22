@@ -42,6 +42,11 @@ spring:
           batch_versioned_data: true
         order_inserts: true
         order_updates: true
+  mail:
+    host: localhost
+    username: hello
+    password: hello
+    port: 1025
 
 management:
   endpoints:
@@ -64,3 +69,4 @@ application:
   version: #project.version#
   secret: VUjx6MNon86YtxPxAAoJtIKbwSIkBGan0KriPgsb3E61c4zd
   jwt-validity-seconds: 86400
+  confirmation-token-validity-minutes: 60

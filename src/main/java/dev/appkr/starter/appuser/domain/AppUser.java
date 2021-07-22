@@ -21,24 +21,33 @@ public class AppUser implements UserDetails {
   private String username;
   private String password;
   private String email;
-  private boolean enabled;
+  private boolean enabled = false;
   @ManyToMany(fetch = FetchType.EAGER)
   @JoinTable(name = "authority_user",
       joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
       inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id")
   )
   private Set<Authority> authorities = new HashSet<>();
-  private Instant createdAt;
-  private Instant updatedAt;
+  private Instant createdAt = Instant.now();
+  private Instant updatedAt = Instant.now();
 
-  public AppUser(String username, String password, String email, boolean enabled) {
+  public AppUser(String username, String password, String email) {
     this.username = username;
     this.password = password;
     this.email = email;
-    this.enabled = enabled;
   }
 
   protected AppUser() {
+  }
+
+  public void activate() {
+    this.enabled = true;
+  }
+
+  public void addAuthority(Authority authority) {
+    if (!authorities.contains(authority)) {
+      authorities.add(authority);
+    }
   }
 
   @Override
