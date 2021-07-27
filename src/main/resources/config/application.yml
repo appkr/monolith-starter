@@ -12,6 +12,7 @@ spring:
     name: monolith-starter
   profiles:
     active: local
+    include: auth
   output:
     ansi:
       enabled: always

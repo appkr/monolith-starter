@@ -20,7 +20,11 @@ public class AppUserService implements UserDetailsService {
   @Override
   @Transactional(readOnly = true)
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    final Optional<AppUser> appUserOptional = repository.findByUsername(username);
+    Optional<AppUser> appUserOptional = repository.findByUsername(username);
+    if (!appUserOptional.isPresent()) {
+      appUserOptional = repository.findByEmail(username);
+    }
+
     return appUserOptional.orElseThrow(() -> new UsernameNotFoundException("Bad credential"));
   }
 }
