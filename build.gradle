@@ -74,3 +74,8 @@ if (!org.gradle.internal.os.OperatingSystem.current().isWindows()) {
         }
     }
 }
+
+test {
+    useJUnitPlatform()
+    systemProperty('spring.profiles.active', 'test')
+}
